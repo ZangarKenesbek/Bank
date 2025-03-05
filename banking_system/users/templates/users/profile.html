@@ -1,0 +1,46 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+    <h1>Личный кабинет</h1>
+    <p><strong>Имя пользователя:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+
+    <a href="{% url 'transaction_history' %}" class="history-button">История переводов</a>
+
+    <style>
+        .history-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .history-button:hover {
+            background: #0056b3;
+        }
+    </style>
+<p><strong>Баланс:</strong> {{ user.balance }} ₸</p>
+
+<!-- Кнопки для перевода -->
+<button type="button" onclick="setDirection('to_deposit')">↓</button>
+<button type="button" onclick="setDirection('from_deposit')">↑</button>
+
+<p><strong>Депозит:</strong> {{ user.deposit }} ₸</p>
+
+<!-- Форма для перевода -->
+<form id="transfer-form" method="post" action="{% url 'transfer_balance_deposit' %}">
+    {% csrf_token %}
+    <input type="hidden" name="direction" id="direction">
+    <input type="number" name="amount" id="amount" min="1" required>
+    <button type="submit">Перевести</button>
+</form>
+
+<script>
+    function setDirection(dir) {
+        document.getElementById("direction").value = dir;
+    }
+</script>
+
+{% endblock %}

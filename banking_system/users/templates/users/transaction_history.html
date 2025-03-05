@@ -1,0 +1,48 @@
+<table border="1">
+    <thead>
+        <tr>
+            <th>Отправитель</th>
+            <th>Получатель</th>
+            <th>Сумма</th>
+            <th>Дата</th>
+            <th>Статус</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in sent_transactions %}
+        <tr>
+            <td>{{ transaction.sender.username }}</td>  <!-- Добавляем отправителя -->
+            <td>{{ transaction.receiver.username }}</td> <!-- Получатель -->
+            <td>{{ transaction.amount }} ₸</td>
+            <td>{{ transaction.timestamp }}</td>
+            <td>{{ transaction.status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h2>Полученные переводы</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Отправитель</th>
+            <th>Получатель</th>
+            <th>Сумма</th>
+            <th>Дата</th>
+            <th>Статус</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in received_transactions %}
+        <tr>
+            <td>{{ transaction.sender.username }}</td>  <!-- Отправитель -->
+            <td>{{ transaction.receiver.username }}</td> <!-- Получатель -->
+            <td>{{ transaction.amount }} ₸</td>
+            <td>{{ transaction.timestamp }}</td>
+            <td>{{ transaction.status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<button onclick="window.history.back()" style="margin: 10px; padding: 5px 15px; font-size: 16px;">
+    ⬅ Назад
+</button>

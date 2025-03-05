@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Банковская система{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .navbar {
+            background: #333; color: white; padding: 10px;
+            display: flex; justify-content: space-between;
+        }
+        .navbar a { color: white; text-decoration: none; margin: 0 10px; }
+        .navbar a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div>
+            <a href="{% url 'profile' %}">Мой аккаунт</a>
+            <a href="{% url 'transfer' %}">Трансфер</a>
+        </div>
+        <div>
+            {% if user.is_authenticated %}
+                <span>Привет, {{ user.username }}!</span>
+                <a href="{% url 'logout' %}">Выйти</a>
+            {% else %}
+                <a href="{% url 'login' %}">Войти</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+</html>

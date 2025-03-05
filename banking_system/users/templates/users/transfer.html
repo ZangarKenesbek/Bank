@@ -1,0 +1,21 @@
+{% extends 'users/base.html' %}
+
+{% block title %}Перевод денег{% endblock %}
+
+{% block content %}
+<h2>Перевод денег</h2>
+
+<p><strong>Отправитель:</strong> {{ user.username }} (Баланс: {{ user.balance }} ₸)</p>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="id_receiver">Получатель:</label>
+    {{ form.receiver }}
+
+    <label for="id_amount">Сумма:</label>
+    {{ form.amount }}
+
+    <button type="submit">Отправить</button>
+
+</form>
+{% endblock %}
