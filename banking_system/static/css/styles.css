@@ -1,11 +1,9 @@
-/* Общие стили */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
     background-color: #f8f9fa;
 }
 
-/* Навигационная панель */
 .navbar {
     background: #333;
     color: white;
@@ -24,12 +22,11 @@ body {
     text-decoration: underline;
 }
 
-/* Заголовки */
 h1 {
     color: #333;
 }
 
-/* Таблицы */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -50,7 +47,7 @@ th {
     color: white;
 }
 
-/* Кнопки */
+
 button {
     background-color: #007bff;
     color: white;
@@ -65,7 +62,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Поля ввода */
 input, select {
     padding: 8px;
     font-size: 14px;
@@ -73,7 +69,7 @@ input, select {
     border-radius: 5px;
 }
 
-/* Контейнер */
+
 .container {
     max-width: 800px;
     margin: 0 auto;
