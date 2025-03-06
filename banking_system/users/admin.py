@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import UserAccount, Transaction
 
+admin.site.site_header = ("Bank Admin")
+
 
 class CustomUserAdmin(UserAdmin):
     model = UserAccount

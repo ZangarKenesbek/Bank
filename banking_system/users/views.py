@@ -164,7 +164,7 @@ def register_view(request):
             user = form.save()
             login(request, user)
             messages.success(request, "Вы успешно зарегистрировались!")
-            return redirect("home")
+            return redirect("profile")
     else:
         form = UserRegistrationForm()
     return render(request, "registration/register.html", {"form": form})
